@@ -46,8 +46,8 @@ public class loginPageClass {
     }
 
     public boolean checkLoginScreen(){
-        WebElement loginScreenHeader = waitForElementToBeVisible(loginScreen, 8);
-         return loginScreenHeader.isDisplayed();
+        WebElement loginScreenText = waitForElementToBeVisible(loginScreen, 8);
+         return loginScreenText.isDisplayed();
     }
 
     public void enterEmailAndPwd(String email, String password){
