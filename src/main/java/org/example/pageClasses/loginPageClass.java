@@ -1,10 +1,9 @@
 package org.example.pageClasses;
-
-import io.cucumber.java.Before;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.springframework.stereotype.Component;
 
+@Component
 public class loginPageClass extends utilityFunctions {
 
     public By myAccountLink = By.xpath("//span[text()='My Account']");
@@ -14,10 +13,6 @@ public class loginPageClass extends utilityFunctions {
     public By passwordField = By.xpath("//input[@name='password']");
     public By loginButton = By.xpath("//input[@type='submit']");
     public By postLoginHeader = By.xpath("//h2[text()='My Account']");
-
-    public loginPageClass(WebDriver driver) {
-        super(driver);
-    }
 
     public void clickMyAccountLink() {
         WebElement myAccLink = waitForElementToBeVisible(myAccountLink, 8);

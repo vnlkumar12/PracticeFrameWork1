@@ -6,31 +6,34 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.example.pageClasses.loginPageClass;
-import org.example.pageClasses.utilityFunctions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.testng.Assert;
 
+@Component
 public class loginStepDef {
 
+    @Autowired
     public loginPageClass loginPage;
-    public utilityFunctions utilities;
 
     @Before
     public void setup() {
-        utilities.browserInitiation();
+        loginPage = new loginPageClass();
+        loginPage.browserInitiation();
     }
 
     @After
     public void tearDown() {
-        utilities.browserTearDown();
+        loginPage.browserTearDown();
     }
 
     @Given("Launch e-commerce application")
     public void launch_e_commerce_application() {
-        utilities.launchAndMaximize("https://naveenautomationlabs.com/opencart");
+        loginPage.launchAndMaximize("https://naveenautomationlabs.com/opencart");
     }
 
     @Given("click on My Account after application load")
-    public void click_on_my_account_after_application_load() throws InterruptedException {
+    public void click_on_my_account_after_application_load() {
         loginPage.clickMyAccountLink();
     }
 
@@ -59,5 +62,8 @@ public class loginStepDef {
         Assert.assertTrue(loginPage.checkSuccessfulLogin());
     }
 
-
+    @When("enter credentials {} {}")
+    public void enterCredentials(String username, String password) {
+        loginPage.enterEmailAndPwd(username, password);
+    }
 }

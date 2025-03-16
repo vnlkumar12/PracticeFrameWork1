@@ -40,11 +40,33 @@
       <artifactId>cucumber-testng</artifactId>
       <version>7.20.1</version>
     </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>7.10.2</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <version>3.4.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -53,7 +75,7 @@
                   <plugin>
                       <groupId>org.apache.maven.plugins</groupId>
                       <artifactId>maven-surefire-plugin</artifactId>
-                      <version>3.5.1</version>
+                      <version>3.5.0</version>
                     <configuration>
                             <suiteXmlFiles>
                                     <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>

@@ -2,7 +2,7 @@ Feature: Login page validation
 
   Background: This feature file consists of the login page tests
     Given Launch e-commerce application
-
+@tests
   Scenario: Login validation with valid credentials
     Given click on My Account after application load
     When click on Login link under My Account
