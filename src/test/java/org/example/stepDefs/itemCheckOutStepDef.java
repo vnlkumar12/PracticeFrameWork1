@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pageClasses.checkoutPageClass;
+import org.example.pageClasses.xpathRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.testng.Assert;
@@ -18,7 +19,7 @@ public class itemCheckOutStepDef {
     @Before
     public void setup() {
         checkoutPage = new checkoutPageClass();
-        checkoutPage.browserInitiation();
+        checkoutPage.browserInitiation("edge");
     }
 
     @After
@@ -28,13 +29,13 @@ public class itemCheckOutStepDef {
 
     @Given("Launch the e-commerce application")
     public void launch_the_e_commerce_application() {
-        checkoutPage.launchAndMaximize("https://naveenautomationlabs.com/opencart");
+        checkoutPage.launchAndMaximize(xpathRepository.url, "desktop");
     }
     @Given("Login with valid credentials")
     public void login_with_valid_credentials() {
         checkoutPage.clickMyAccountLink();
         checkoutPage.clickLogin();
-        checkoutPage.enterEmailAndPwd("vnlkumar12@gmail.com", "Test@1234");
+        checkoutPage.enterEmailAndPwd(xpathRepository.userName, xpathRepository.password);
         checkoutPage.clickOnSubmit();
     }
     @When("Click on {string} link")

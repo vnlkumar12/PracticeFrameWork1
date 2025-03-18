@@ -7,20 +7,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class homePageClass extends loginPageClass {
 
-    public By showAllDesktops = By.xpath("//a[text()='Show All Desktops']");
-    public By addToCart = By.xpath("//button[text()='Add to Cart']");
-    public By cart = By.xpath("//div[@id='cart']");
-    public By checkoutWithoutView = By.xpath("//div[@id='cart']//a[contains(@href,'checkout/checkout')]");
-    public By logout = By.xpath("//div[@id='top-links']//a[text()='Logout']");
-
-
     public void clickOnNavigationLink(String title){
         WebElement navigationLink = waitForElementToBeClickable(By.xpath("//a[text()='"+title+"']"), 8);
         navigationLink.click();
     }
 
     public void clickOnShowAllDesktops(){
-        WebElement navShowAllDeskTopsLink = waitForElementToBeClickable(showAllDesktops, 8);
+        WebElement navShowAllDeskTopsLink = waitForElementToBeClickable(xpathRepository.showAllDesktops, 8);
         navShowAllDeskTopsLink.click();
     }
 
@@ -30,22 +23,22 @@ public class homePageClass extends loginPageClass {
     }
 
     public void clickOnAddToCart(){
-        WebElement addToCartButton = waitForElementToBeClickable(addToCart, 8);
+        WebElement addToCartButton = waitForElementToBeClickable(xpathRepository.addToCart, 8);
         addToCartButton.click();
     }
 
     public void clickOnCart(){
-        WebElement cartButton = waitForElementToBeVisible(cart, 8);
+        WebElement cartButton = waitForElementToBeVisible(xpathRepository.cart, 8);
         cartButton.click();
     }
 
     public void clickOnCheckOutWithoutView(){
-        WebElement checkOutLink = waitForElementToBeVisible(checkoutWithoutView, 8);
+        WebElement checkOutLink = waitForElementToBeVisible(xpathRepository.checkoutWithoutView, 8);
         checkOutLink.click();
     }
 
     public void clickOnLogout(){
-        WebElement logoutLink = waitForElementToBeClickable(logout, 8);
+        WebElement logoutLink = waitForElementToBeClickable(xpathRepository.logout, 8);
         logoutLink.click();
     }
 }

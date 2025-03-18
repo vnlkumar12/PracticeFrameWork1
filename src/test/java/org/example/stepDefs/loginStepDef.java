@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.example.pageClasses.loginPageClass;
+import org.example.pageClasses.xpathRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.testng.Assert;
@@ -19,7 +20,7 @@ public class loginStepDef {
     @Before
     public void setup() {
         loginPage = new loginPageClass();
-        loginPage.browserInitiation();
+        loginPage.browserInitiation("edge");
     }
 
     @After
@@ -29,7 +30,7 @@ public class loginStepDef {
 
     @Given("Launch e-commerce application")
     public void launch_e_commerce_application() {
-        loginPage.launchAndMaximize("https://naveenautomationlabs.com/opencart");
+        loginPage.launchAndMaximize(xpathRepository.url, "desktop");
     }
 
     @Given("click on My Account after application load")
@@ -49,7 +50,7 @@ public class loginStepDef {
 
     @When("enter valid email id and Password")
     public void enter_valid_email_id_and_password() {
-        loginPage.enterEmailAndPwd("vnlkumar12@gmail.com", "Test@1234");
+        loginPage.enterEmailAndPwd(xpathRepository.userName, xpathRepository.password);
     }
 
     @When("click on Submit button")
