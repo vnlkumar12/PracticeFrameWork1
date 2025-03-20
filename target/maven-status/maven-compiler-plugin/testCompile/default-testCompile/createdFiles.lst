@@ -1,0 +1,5 @@
+org\example\stepDefs\loginStepDef.class
+org\example\stepDefs\itemCheckOutStepDef.class
+org\example\AppTest.class
+org\example\hooks\TestStatusHook.class
+runner\TestRunner.class
